@@ -11,6 +11,7 @@ import com.callcenter.objects.ObjCall;
 import com.callcenter.objects.ObjEmployee;
 import com.callcenter.useful.Useful;
 import com.callcenter.constants.Constants;
+import com.callcenter.execute.Employee;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,18 +23,17 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class BuildingStructures {
     
-  private static List<ObjEmployee> listEmployees = new ArrayList<>();
+  private static List<Employee> listEmployees = null;
    
 
-   public static List<ObjEmployee> listEmployees(Integer numberOperators, EmployeeType type)
+   public static List<Employee> listEmployees(Integer numberOperators, EmployeeType type)
    {
+       listEmployees =  new ArrayList<>();
       int i=0;
-        ObjEmployee employee = null;
+        Employee employee = null;
        while(i < numberOperators )
       {
-        employee = new ObjEmployee();
-        employee.setEmployeeType(type);
-        employee.setEmployeeState(EmployeeState.AVAILABLE);
+        employee = new Employee(type,EmployeeState.AVAILABLE );
         listEmployees.add(employee);
         i++;
       }

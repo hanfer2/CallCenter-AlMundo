@@ -29,11 +29,11 @@ public class Dispatcher implements Runnable {
 
     private CallAttendStrategy callAttendStrategy;
 
-    public Dispatcher(List<ObjEmployee> employees) {
+    public Dispatcher(List<Employee> employees) {
         this(employees, new DefaultCallAttendStrategy());
     }
 
-    public Dispatcher(List<ObjEmployee> employees, CallAttendStrategy callAttendStrategy) {
+    public Dispatcher(List<Employee> employees, CallAttendStrategy callAttendStrategy) {
         Validate.notNull(employees);
         Validate.notNull(callAttendStrategy);
         this.employees = new ConcurrentLinkedDeque(employees);
@@ -82,6 +82,7 @@ public class Dispatcher implements Runnable {
             } else {
                 Employee employee = this.callAttendStrategy.findEmployee(this.employees);
                 if (employee == null) {
+                    System.out.println("**********************this is no employee***************************");
                     continue;
                 }
                 ObjCall call = this.incomingCalls.poll();

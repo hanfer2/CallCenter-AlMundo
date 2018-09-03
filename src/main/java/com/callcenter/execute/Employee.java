@@ -28,10 +28,10 @@ public class Employee implements Runnable {
 
     private ConcurrentLinkedDeque<ObjCall> attendedCalls;
 
-    public Employee(EmployeeType employeeType) {
+     public Employee(EmployeeType employeeType, EmployeeState employeeState) {
         Validate.notNull(employeeType);
         this.employeeType = employeeType;
-        this.employeeState = EmployeeState.AVAILABLE;
+        this.employeeState = employeeState;
         this.incomingCalls = new ConcurrentLinkedDeque<>();
         this.attendedCalls = new ConcurrentLinkedDeque<>();
     }
@@ -64,10 +64,11 @@ public class Employee implements Runnable {
     }
 
     /**
-     * This is the method that runs on the thread.
-     * If the incoming calls queue is not empty, then it changes its state from AVAILABLE to BUSY, takes the call
-     * and when it finishes it changes its state from BUSY back to AVAILABLE. This allows a Thread Pool to decide
-     * to dispatch another call to another employee.
+     * This is the method that runs on the thread. If the incoming calls queue
+     * is not empty, then it changes its state from AVAILABLE to BUSY, takes the
+     * call and when it finishes it changes its state from BUSY back to
+     * AVAILABLE. This allows a Thread Pool to decide to dispatch another call
+     * to another employee.
      */
     @Override
     public void run() {

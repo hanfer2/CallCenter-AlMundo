@@ -13,7 +13,7 @@ import com.callcenter.enumerator.EmployeeType;
  * @author hgutierrez
  */
 public class ObjEmployee {
-    
+    /*
         private EmployeeType employeeType;
         //this atribute  have the priority for employee
 	private int id;
@@ -58,6 +58,6 @@ public class ObjEmployee {
     public void setEmployeeState(EmployeeState employeeState) {
         this.employeeState = employeeState;
     }
-	
+	*/
     
 }
