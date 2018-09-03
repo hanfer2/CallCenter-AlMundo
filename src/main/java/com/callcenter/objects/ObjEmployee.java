@@ -24,8 +24,16 @@ public class ObjEmployee {
 		this.id = id;
 	}
 
-        public ObjEmployee()
-        {}
+        public ObjEmployee(EmployeeType employeeType, EmployeeState employeeState)
+        {
+             this.employeeType = employeeType;
+              this.employeeState = employeeState;
+        }
+        
+         public ObjEmployee()
+        {
+            
+        }
         
     public EmployeeType getEmployeeType() {
         return employeeType;
@@ -51,5 +59,5 @@ public class ObjEmployee {
         this.employeeState = employeeState;
     }
 	
-	
+    
 }

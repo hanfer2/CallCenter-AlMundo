@@ -63,18 +63,6 @@ public class Employee implements Runnable {
         this.incomingCalls.add(call);
     }
 
-    public static Employee buildOperator() {
-        return new Employee(EmployeeType.OPERATOR);
-    }
-
-    public static Employee buildSupervisor() {
-        return new Employee(EmployeeType.SUPERVISOR);
-    }
-
-    public static Employee buildDirector() {
-        return new Employee(EmployeeType.DIRECTOR);
-    }
-
     /**
      * This is the method that runs on the thread.
      * If the incoming calls queue is not empty, then it changes its state from AVAILABLE to BUSY, takes the call

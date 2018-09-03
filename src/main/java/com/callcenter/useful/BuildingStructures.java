@@ -29,7 +29,7 @@ public class BuildingStructures {
    {
       int i=0;
         ObjEmployee employee = null;
-       while(i< numberOperators )
+       while(i < numberOperators )
       {
         employee = new ObjEmployee();
         employee.setEmployeeType(type);
