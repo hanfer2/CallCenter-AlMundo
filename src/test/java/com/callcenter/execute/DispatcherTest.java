@@ -36,8 +36,6 @@ public class DispatcherTest {
     public void testDispatcherCreationWithNullStrategy() {
         new Dispatcher(new ArrayList<>(), null);
     }
-
-    
     
     @Test
     public void testDispatchCallsToEmployees() throws InterruptedException {

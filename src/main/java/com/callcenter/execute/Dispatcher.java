@@ -27,17 +27,17 @@ public class Dispatcher implements Runnable {
 
     private ConcurrentLinkedDeque<ObjCall> incomingCalls;
 
-    private CallAttendStrategy callAttendStrategy;
+    private AvailabilityEmployees availabilityEmployees;
 
     public Dispatcher(List<Employee> employees) {
-        this(employees, new DefaultCallAttendStrategy());
+        this(employees, new AvailabilityEmployees());
     }
 
-    public Dispatcher(List<Employee> employees, CallAttendStrategy callAttendStrategy) {
+    public Dispatcher(List<Employee> employees, AvailabilityEmployees availabilityEmployees) {
         Validate.notNull(employees);
-        Validate.notNull(callAttendStrategy);
+        Validate.notNull(availabilityEmployees);
         this.employees = new ConcurrentLinkedDeque(employees);
-        this.callAttendStrategy = callAttendStrategy;
+        this.availabilityEmployees = availabilityEmployees;
         this.incomingCalls = new ConcurrentLinkedDeque<>();
         this.executorService = Executors.newFixedThreadPool(Constants.NUMBER_THREAD);
     }
@@ -80,10 +80,13 @@ public class Dispatcher implements Runnable {
             if (this.incomingCalls.isEmpty()) {
                 continue;
             } else {
-                Employee employee = this.callAttendStrategy.findEmployee(this.employees);
+                Employee employee = this.availabilityEmployees.findEmployee(this.employees);
                 if (employee == null) {
                     System.out.println("**********************this is no employee***************************");
                     continue;
+                }else
+                {
+                System.out.println("My employee is" + employee.getEmployeeType() + "");
                 }
                 ObjCall call = this.incomingCalls.poll();
                 try {

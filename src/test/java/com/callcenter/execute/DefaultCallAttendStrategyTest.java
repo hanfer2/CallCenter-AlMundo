@@ -4,7 +4,7 @@ import com.callcenter.enumerator.EmployeeState;
 import com.callcenter.enumerator.EmployeeType;
 import com.callcenter.execute.Employee;
 import com.callcenter.execute.CallAttendStrategy;
-import com.callcenter.execute.DefaultCallAttendStrategy;
+import com.callcenter.execute.AvailabilityEmployees;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -19,7 +19,7 @@ public class DefaultCallAttendStrategyTest {
     private CallAttendStrategy callAttendStrategy;
 
     public DefaultCallAttendStrategyTest() {
-        this.callAttendStrategy = new DefaultCallAttendStrategy();
+        this.callAttendStrategy = new AvailabilityEmployees();
     }
 
     @Test
